@@ -4,6 +4,8 @@ module.exports = {
   testMatch: ['**/test/**/*.[jt]s?(x)'],
   verbose: true,
   testTimeout: 30000,
+  collectCoverage: true,
+  coverageReporters: ['lcov'],
   reporters: [
     'default',
     [
@@ -15,6 +17,13 @@ module.exports = {
         logoImgPath: './assets/jest-logo.png',
         expand: false,
         openReport: false
+      }
+    ],
+    [
+      'jest-junit',
+      {
+        outputDirectory: './output',
+        outputName: 'junit.xml'
       }
     ]
   ]
